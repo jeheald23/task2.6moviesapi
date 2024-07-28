@@ -22,6 +22,12 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
+  const corsOptions = {
+    origin: 'http://localhost:1234',
+    optionsSuccessStatus: 200,
+  };
+ 
+  app.use(cors(corsOptions));
 app.use(cors());
 app.use(bodyParser.json());
 
