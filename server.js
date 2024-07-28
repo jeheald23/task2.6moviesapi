@@ -27,9 +27,9 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
     optionsSuccessStatus: 200,
   };
  
-  app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 app.use(cors());
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '20mb' }));
 
 // Configure AWS SDK to use LocalStack
 const s3 = new AWS.S3({
